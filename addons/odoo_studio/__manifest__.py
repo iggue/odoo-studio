@@ -4,38 +4,30 @@
     'name': "Odoo Studio",
     'category': 'Customizations',
     'sequence': 300,
-    'summary': "Customize your form views with a WYSIWYG editor",
+    'summary': "Form view customization engine of a WYSIWYG editor",
     'description': """
 Odoo Studio
 ===========
 
-Customize the form views of your apps without writing any code:
+Server side of a WYSIWYG form view editor:
 
-* open the editor from the systray while browsing any model,
-* see a live preview of the form, rendered by the web client itself,
-* click a field to edit its label, tooltip, placeholder and widget, or to make
-  it required, readonly or invisible,
-* drag and drop existing fields or brand new custom fields (including rich text
-  fields, edited with the WYSIWYG html editor) anywhere in the form,
-* move and remove fields, undo the last change or reset the view.
+* JSON-RPC routes to load a form view for edition, to add, move and remove its
+  fields or change their label, tooltip, placeholder, widget and modifiers, to
+  undo the last change and to reset the view,
+* creation of custom fields, including rich text (html) fields,
+* all the customizations of a view are stored in a single inheriting view, so
+  that they survive the updates of the customized module.
 
-All the customizations of a view are stored in a single inheriting view, so
-that they survive the updates of the customized module.
+The web client provides the helper preparing the architecture of the edited
+view for its live preview.
     """,
     'depends': ['web', 'html_editor'],
     'assets': {
         'web.assets_backend': [
             'odoo_studio/static/src/**/*',
         ],
-        'web.assets_tests': [
-            'odoo_studio/static/tests/tours/**/*',
-        ],
-        'web.assets_unit_tests': [
-            'odoo_studio/static/tests/**/*.test.js',
-        ],
     },
     'icon': '/odoo_studio/static/description/icon.svg',
-    'application': True,
     'author': 'iggue',
     'license': 'LGPL-3',
 }
